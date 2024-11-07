@@ -44,7 +44,8 @@ app.use(function(err, req, res, next) {
 });
 
 // iniciar o servidor
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
+console.log("Servidor iniciando...")
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
