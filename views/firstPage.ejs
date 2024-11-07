@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="../stylesheets/firstPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- bootstrap links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- bootstrap links -->
+    <!-- fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!-- fonts links -->
+</head>
+<body>
+  <div class="all-content">
+   
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg" id="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" id="logo"><img src="images/Mokas-logo.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fa-solid fa-bars" style="color: white; font-size: 23px;"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Sobre Nós</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#menu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#product">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallary">Galeria</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#blogs">Blog</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <button class="btn btn-outline-success me-2" id="login-btn"><a href="login" style="color: inherit; text-decoration: none;">Login<a/></button>
+          <button class="btn btn-outline-success" id="register-btn"><a href="cadastro" style="color: inherit; text-decoration: none;">Cadastro<a/></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar -->
+
+<!-- home section -->
+   <section id="home">
+    <div class="content">
+      <h3>Sabor que Desperta, <br> Aroma que Encanta.</h3>
+      <p>Conheça os nossos mais variados tipos e sabores de cafés
+         <br>Deguste todas as opções já.
+      </p>
+      <button id="btn"><a href="mokashop" style="color: inherit; text-decoration: none;">Shop</a></button>
+    </div>
+   </section>
+
+<!-- home section -->
+
+
+
+<!-- about section -->
+<div class="about" id="about">
+  <div class="container">
+  <div class="heading">Sobre <span>Nós</span></div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <img src="./images/about.png" alt="">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>O que torna nosso café especial?</h3>
+        <p>Café é mais do que uma bebida; é uma experiência sensorial. É o calor que te abraça pela manhã, o aroma que desperta os sentidos e o sabor que renova a alma.
+          <br><br>No entanto, sabíamos que havia algo mais a ser descoberto, algo que elevasse essa experiência a um novo patamar. Combinamos o melhor dos grãos brasileiros, conhecidos por sua rica diversidade de sabores, com a meticulosa técnica italiana.
+          <br><br>O resultado? Um café que não é apenas uma bebida, mas uma celebração do momento. Elegante, autêntico e inesquecível. Venha viver essa experiência. Pegue seu café e sinta o sabor da perfeição em cada gole. Simples, mas extraordinário.
+         </p>
+         <button id="about-btn">Leia mais.</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- about section -->
+
+
+   
+
+
+
+<!-- top cards -->
+<section class="top-cards">
+  <div class="heading2">Principais <span>Categorias</span></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/c1.png" alt="">
+          
+        </div>
+      </div>
+      <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/c2.png" alt="">
+          
+        </div>
+      </div>
+      <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/c3.png" alt="">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- top cards -->
+
+
+
+
+
+
+<!-- menu -->
+<section class="menu" id="menu">
+  <div class="container">
+  <div class="heading3">Menu</div>
+</div>
+  <div class="container" id="container2">
+  <div class="row">
+    <div class="col-md-3 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/m1.png" alt="">
+        <div class="card-body">
+          <div class="star text-center">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Cappuccino</h3>
+          <p>$4.50 <strike>$6</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/m2.png" alt="">
+        <div class="card-body">
+          <div class="star text-center">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Latte</h3>
+          <p>$4.00 <strike>$5.00</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/m3.png" alt="">
+        <div class="card-body">
+          <div class="star text-center">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Macchiato</h3>
+          <p>$3.50 <strike>$4.50</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/m4.png" alt="">
+        <div class="card-body">
+          <div class="star text-center">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Mocha</h3>
+          <p>$5.00 <strike>$8.00</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 50px;">
+    <div class="col-md-3 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/m5.png" alt="">
+        <div class="card-body">
+          <div class="star text-center">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Café Expresso</h3>
+          <p>$2.50 <strike>$3.50</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/m6.png" alt="">
+        <div class="card-body">
+          <div class="star text-center">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Café Preto</h3>
+          <p>$2.00 <strike>$2.50</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/m7.png" alt="">
+        <div class="card-body">
+          <div class="star text-center">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Flat White</h3>
+          <p>$4.75 <strike>$6.50</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/m8.png" alt="">
+        <div class="card-body">
+          <div class="star text-center">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Americano</h3>
+          <p>$3.00 <strike>$4.00</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<!-- menu -->
+
+
+
+
+
+
+
+
+<!-- product -->
+<section id="product" class="product">
+  <div class="container">
+  <div class="heading4">Produtos</div>
+</div>
+  <div class="container" id="container3">
+
+    <div class="row">
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/arabica coffee.png" alt="">
+          <div class="card-body">
+            <h3>Arabic Coffee</h3>
+          <p>$120 <strike>$150</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/Cappuccino coffee.png" alt="">
+          <div class="card-body">
+            <h3>Cappuccino Coffee</h3>
+          <p>$250 <strike>$350</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/Black Coffee.png" alt="">
+          <div class="card-body">
+            <h3>Black Coffee</h3>
+          <p>$130 <strike>$150</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/Decaf caffee.png" alt="">
+          <div class="card-body">
+            <h3>Decaf Coffee</h3>
+          <p>$120 <strike>$150</strike> <span><i class="fa-solid fa-cart-shopping"></i></span></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- product -->
+
+
+
+
+<!-- our gallary -->
+<div class="container" id="gallary">
+  <h1>Galeria de <span>Imagens</span></h1>
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/image1.png" alt="">
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/image2.png" alt="">
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/image3.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/image4.png" alt="">
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/image5.png" alt="">
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/image6.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- our gallary -->
+
+
+
+
+<!-- contact -->
+<section class="contact" id="contact">
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+       <div class="heading6">Fale <span>Conosco</span></div>
+
+       <p>Espaço disponível para retornamos um contato para tratar sobre
+        <br>outras informações, dúvidas e novas oportunidades.
+       </p>
+
+       <input class="form-control" type="text" placeholder="Nome" aria-label="default input example"><br>
+       <input class="form-control" type="email" placeholder="Email" aria-label="default input example"><br>
+       <input class="form-control" type="number" placeholder="Número" aria-label="default input example"><br>
+       <button id="contact-btn">Enviar Mensagem</button>
+      </div>
+      <div class="col-md-5" id="col">
+        <h1>Informações</h1>
+        <p><i class="fa-regular fa-envelope"></i> mokas.coffe@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> (89)90000-0000</p>
+       <p><i class="fa-solid fa-building-columns"></i> Sede em Fortaleza - Ceará</p>
+       <p>Demais informações para contato e a localização da nossa sede</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- contact -->
+
+
+   <!-- blogs -->
+   <section class="blogs" id="blogs">
+    <h1>Últimas <span>do blog</span></h1>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/b1.png" alt="">
+          <div class="card-body">
+            <h3>Uma nova loja, um novo espaço</h3>
+            <h5>Notícia / 26 Julho 2024</h5>
+            <p>Uma nova e encantadora cafeteria chamada "Moka's Tallo" está prestes a abrir suas portas no coração da cidade. Substituindo um antigo estabelecimento, a nova cafeteria promete ser o ponto de encontro ideal para os amantes do café.</p>
+            <button id="blogbtn">Mais informações.</button>
+          </div>
+        </div>  
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/b2.png" alt="">
+          <div class="card-body">
+            <h3>Um ótimo local para trabalhar</h3>
+            <h5>Resenha / 25 Junho 2024</h5>
+            <p>O "Moka's Tallo" não é apenas um ótimo lugar para apreciar um bom café, mas também um ambiente perfeito para trabalhar. Com mesas espaçosas, cadeiras confortáveis e Wi-Fi gratuito de alta velocidade, a cafeteria oferece tudo o que você precisa para um dia produtivo.</p>
+            <button id="blogbtn">Mais informações.</button>
+          </div>
+        </div>  
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/b3.png" alt="">
+          <div class="card-body">
+            <h3>Vantagens do Trabalho com Café</h3>
+            <h5>Artigo Informativo / 30 Março 2024</h5>
+            <p>Tomar café enquanto trabalha oferece diversos benefícios. A cafeína presente no café ajuda a aumentar a concentração e a melhorar a memória, proporcionando um impulso mental. Além disso, o café pode melhorar o humor e reduzir o estresse, tornando o trabalho mais agradável.</p>
+            <button id="blogbtn">Mais informações.</button>
+          </div>
+        </div>  
+        </div>
+        
+      </div>
+
+    </div>
+
+
+   </section>
+   <!-- blogs -->
+
+
+
+
+
+
+
+   <!-- footer -->
+   <footer id="footer">
+    <div class="footer-logo text-center"><img src="images/Mokas-logo.png" alt=""></div>
+    <div class="socail-links text-center">
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-youtube"></i>
+      <i class="fa-brands fa-pinterest-p"></i>
+    </div>
+    <div class="credite text-center">
+        Designed By <a href="#"> MS Code</a>
+    </div>
+    <div class="copyright text-center">
+      &copy; Copyright <strong><span>Moka's Tallo Coffe</span></strong>. Todos os direitos reservados
+  </div>
+</footer>
+   <!-- footer -->
+
+   <a href="#" class="arrow"><i><img src="./images/up-arrow.png" alt="" width="50px"></i></a>
+
+
+  </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
