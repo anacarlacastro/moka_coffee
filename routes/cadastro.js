@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
         db.run(`INSERT INTO users (username, email, password) VALUES (?, ?, ?)`, [username, email, hashedPassword], function(err) {
             if (err) {
                 console.error("Erro ao cadastrar o usuário: ", err.message);
-                res.status(500).json({ message: "Erro ao cadastrar o usuário" });
+                res.status(500).json({ message: "Erro ao cadastrar o usuário. Que triste!" });
             } else {
                 res.json({ message: "Usuário cadastrado com sucesso!" });
             }
