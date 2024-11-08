@@ -1,35 +1,26 @@
-var express = require('express');
-var router = express.Router();
-const sqlite3 = require('sqlite3').verbose(); // Adicionando o SQLite
-const bcrypt = require('bcrypt'); // Para criptografar senhas
+const express = require('express');
+const router = express.Router();
+const db = require('../db');
+const bcrypt = require('bcrypt');
 
-// Conectar ao banco de dados SQLite
-const db = new sqlite3.Database('./database.db', (err) => {
-    if (err) {
-        console.error("Erro ao abrir o banco de dados: ", err.message);
-    } else {
-        console.log("Conectado ao banco de dados SQLite.");
-
-        // Criar a tabela de usuários se ela ainda não existir
-        db.run(`
-            CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT NOT NULL UNIQUE,
-                password TEXT NOT NULL
-            )
-        `, (err) => {
-            if (err) {
-                console.error("Erro ao criar a tabela de usuários: ", err.message);
-            } else {
-                console.log("Tabela de usuários verificada/criada com sucesso.");
-            }
-        });
-    }
+// Rota para a página 'firstPage'
+router.get('/', (req, res) => {
+    res.render('firstPage', { title: 'First Page' });
 });
 
-// Rota para a página firstPage como raiz
-router.get('/', function(req, res, next) {
-  res.render('firstPage', { title: 'First Page' });
+// Rota de exemplo para registrar um usuário
+router.post('/register', async (req, res) => {
+    const { username, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    db.run(`INSERT INTO users (username, password) VALUES (?, ?)`, [username, hashedPassword], (err) => {
+        if (err) {
+            console.error("Erro ao registrar usuário:", err.message);
+            res.status(500).send("Erro ao registrar usuário");
+        } else {
+            res.send("Usuário registrado com sucesso!");
+        }
+    });
 });
 
 module.exports = router;

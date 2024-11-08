@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const db = require('./db');
+
 var firstPageRouter = require('./routes/firstPage');
 var loginRouter = require('./routes/login');
 var mokashopRouter = require('./routes/mokashop');
@@ -22,10 +24,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Rotas
 app.use('/', firstPageRouter);
 app.use('/login', loginRouter);
 app.use('/mokashop', mokashopRouter);
 app.use('/cadastro', cadastroRouter);
+
+// Conectar ao banco de dados ao iniciar o servidor
+db.serialize(() => {
+  console.log("Banco de dados pronto para uso.");
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
