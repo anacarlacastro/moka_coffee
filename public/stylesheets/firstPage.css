@@ -396,6 +396,10 @@
   margin-top: 30px;
   cursor: pointer;
   }
+  #contact-btn:hover{
+    background: #916141;
+    color: white;
+  }
   #col{
   width: 40%;
   height: 56vh;
@@ -458,17 +462,25 @@
   .blogs h5{
   color: #b2744c;
   }
-  #blogbtn{
-  width: 200px;
-  height: 36px;
-  border: none;
-  color: white;
-  background: #b2744c;
-  cursor: pointer;
+  #blog-btn{
+    width: 200px;
+    height: 36px;
+    background: transparent;
+    border: 2px solid #b2744c;
+    color: #b2744c;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;
   }
+  #blog-btn:hover{
+    background: #b2744c;
+    color: white;
+  }
+ 
   /* blogs */
-  
-  
+
+
   
   
   
