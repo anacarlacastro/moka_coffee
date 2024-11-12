@@ -54,17 +54,18 @@ height: 40px;
 margin-top: 20px;
 margin-right: 40px;
 margin-bottom: 25px;
-color: #b2744c;
-background: transparent;
-border: 2px solid #b2744c;
+color: #b2744c !important;
+background: transparent !important;
+border: 2px solid #b2744c !important;
 border-radius: 5px;
 font-weight: bold;
 transition: 0.5s ease;
 cursor: pointer;
+text-decoration: none !important;
 }
 #login-btn:hover {
-background: #b2744c;
-color: white;
+background: #b2744c !important;
+color: white !important;
 }
 #register-btn{
 width: 150px;
@@ -72,17 +73,18 @@ height: 40px;
 margin-top: 20px;
 margin-right: 40px;
 margin-bottom: 25px;
-color: #b2744c;
-background: transparent;
-border: 2px solid #b2744c;
+color: #b2744c !important;;
+background: transparent !important;
+border: 2px solid #b2744c !important;
 border-radius: 5px;
 font-weight: bold;
 transition: 0.5s ease;
 cursor: pointer;
+text-decoration: none !important;
 }
 #register-btn:hover {
-background: #b2744c;
-color: white;
+background: #b2744c !important;
+color: white !important;
 }
 /* navbar */
 /* home content */
@@ -109,20 +111,22 @@ margin-top: 10px;
 color: black;
 font-family: Georgia;
 }
-#btn{
+#shop-btn{
 width: 150px;
 height: 36px;
 margin-top: 20px;
-background: white;
+background: white !important;
+color: #b2744c !important;
 border-radius: 5px;
 font-weight: bold;
 border: none;
 transition: 0.5s ease;
 cursor: pointer;
+text-decoration: none !important;
 }
-#btn:hover{
-background: #b2744c;
-color: white;
+#shop-btn:hover{
+background: #b2744c !important;
+color: white !important;
 }
 /* home content */
 
