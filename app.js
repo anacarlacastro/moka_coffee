@@ -30,6 +30,25 @@ app.use('/login', loginRouter);
 app.use('/mokashop', mokashopRouter);
 app.use('/cadastro', cadastroRouter);
 
+// Rota para a pesquisa de produtos
+app.get('/search', (req, res) => {
+  const searchQuery = req.query.q.toLowerCase();
+
+// Query para buscar produtos no banco de dados
+  const sql = `SELECT * FROM produtos WHERE LOWER(nome) LIKE ?`;
+  const params = [`%${searchQuery}%`];
+
+  db.all(sql, params, (err, rows) => {
+    if (err) {
+      console.error("Erro ao buscar produtos:", err.message);
+      return res.status(500).json({ error: "Erro interno no servidor" });
+    }
+
+// Retorna os resultados da busca
+    res.json(rows);
+  });
+});
+
 // Conectar ao banco de dados ao iniciar o servidor
 db.serialize(() => {
   console.log("Banco de dados pronto para uso.");

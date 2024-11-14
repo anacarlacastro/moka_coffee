@@ -1,4 +1,3 @@
-// db.js
 const sqlite3 = require('sqlite3').verbose();
 
 const db = new sqlite3.Database('./database.db', (err) => {
@@ -22,4 +21,23 @@ const db = new sqlite3.Database('./database.db', (err) => {
     }
 });
 
+db.serialize(() => {
+    db.run(`
+      CREATE TABLE IF NOT EXISTS produtos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        preco REAL NOT NULL,
+        imagem TEXT NOT NULL,
+        descricao TEXT
+      )
+    `, (err) => {
+      if (err) {
+        console.error('Erro ao criar tabela:', err.message);
+      } else {
+        console.log('Tabela de produtos criada com sucesso.');
+      }
+    });
+  });
+  
+ 
 module.exports = db;
