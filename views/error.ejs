@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error</title>
+    <title>Erro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Error</h1>
+    <h1>Ocorreu um erro!</h1>
     <% if (error.status === 404) { %>
-        <p>Desculpe, a página que você está procurando não foi encontrada, problema seu, tá querido? Sabe o que é tentar fazer um site sem PC ou Notebook e ainda morar longe da escola e passar horas com fome só pra poder mexer num pc? Tipo, código leva tempo e demanda e passei meses sem um PC!</p>
+        <p>Desculpe, a página que você está procurando não foi encontrada.</p>
+        <p><strong>Problema seu, tá querido?</strong> Sabe o que é tentar fazer um site sem PC ou Notebook e ainda morar longe da escola e passar horas com fome só pra poder mexer num pc? Tipo, código leva tempo e demanda, e passei meses sem um PC!</p>
     <% } else { %>
-        <p>Ocorreu um erro inesperado no servidor.</p>
+        <p>Ocorreu um erro inesperado no servidor. Por favor, tente novamente mais tarde.</p>
     <% } %>
+    <p><a href="/">Voltar para a página inicial</a></p>
 </body>
 </html>

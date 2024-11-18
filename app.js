@@ -4,12 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const db = require('./db');
+
+const db = require('./db'); //importando o banco de dados
 
 var firstPageRouter = require('./routes/firstPage');
 var loginRouter = require('./routes/login');
 var mokashopRouter = require('./routes/mokashop');
 var cadastroRouter = require('./routes/cadastro');
+var sobreNosRouter = require('./routes/sobreNos');
 
 var app = express();
 
@@ -29,10 +31,11 @@ app.use('/', firstPageRouter);
 app.use('/login', loginRouter);
 app.use('/mokashop', mokashopRouter);
 app.use('/cadastro', cadastroRouter);
+app.use('/sobreNos', sobreNosRouter);
 
 // Rota para a pesquisa de produtos
 app.get('/search', (req, res) => {
-  const searchQuery = req.query.q.toLowerCase();
+  const searchQuery = req.query.q;
 
 // Query para buscar produtos no banco de dados
   const sql = `SELECT * FROM produtos WHERE LOWER(nome) LIKE ?`;
@@ -47,11 +50,6 @@ app.get('/search', (req, res) => {
 // Retorna os resultados da busca
     res.json(rows);
   });
-});
-
-// Conectar ao banco de dados ao iniciar o servidor
-db.serialize(() => {
-  console.log("Banco de dados pronto para uso.");
 });
 
 // catch 404 and forward to error handler
@@ -71,7 +69,7 @@ app.use(function(err, req, res, next) {
 });
 
 // iniciar o servidor
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 console.log("Servidor iniciando...")
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
