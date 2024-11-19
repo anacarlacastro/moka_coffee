@@ -13,6 +13,7 @@ var mokashopRouter = require('./routes/mokashop');
 var cadastroRouter = require('./routes/cadastro');
 var sobreNosRouter = require('./routes/sobreNos');
 
+
 var app = express();
 
 // view engine setup
@@ -32,6 +33,7 @@ app.use('/login', loginRouter);
 app.use('/mokashop', mokashopRouter);
 app.use('/cadastro', cadastroRouter);
 app.use('/sobreNos', sobreNosRouter);
+
 
 // Rota para a pesquisa de produtos
 app.get('/search', (req, res) => {

@@ -2,6 +2,23 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
+function inserirProduto(nome, descricao, preco, imagem) {
+  const insertQuery = 'INSERT INTO produtos (nome, descricao, preco, imagem) VALUES (?, ?, ?, ?)';
+  db.run(insertQuery, [nome, descricao, preco, imagem], function (err) {
+    if (err) {
+      console.error('Erro ao adicionar produto:', err);
+    } else {
+      console.log(`Produto ${nome} adicionado com sucesso!`);
+    }
+  });
+}
+
+inserirProduto('Misto Quente', 'Pão na chapa com queijo e presunto', 7.00, 'images/mistoQuente.jpg');
+inserirProduto('Crepe doce', 'Crepe com frutas', 6.00 , 'images/pexels-eileenlamb-3225499.jpg');
+inserirProduto('Shawarma', 'Sanduíche Grego', 10.00, 'images/sanduicheGrego.jpg');
+inserirProduto('Waffle com frutas', 'Waffle', 8.00, 'images/Wafflecomfruta.jpeg');
+
+
 // Rota para listar os produtos
 router.get('/', (req, res) => {
   const query = 'SELECT * FROM produtos';
@@ -17,6 +34,7 @@ router.get('/', (req, res) => {
     }
   });
 });
+
 
 // Rota para adicionar um produto
 router.post('/adicionar-produto', (req, res) => {
@@ -37,8 +55,8 @@ router.post('/adicionar-produto', (req, res) => {
     }
 
     // Caso o produto não exista, insere o novo produto
-    const insertQuery = 'INSERT INTO produtos (nome, descricao, preco) VALUES (?, ?, ?)';
-    db.run(insertQuery, [nome, descricao, preco], function(err) {
+    const insertQuery = 'INSERT INTO produtos (nome, descricao, preco, imagem) VALUES (?, ?, ?, ?)';
+    db.run(insertQuery, [nome, descricao, preco, imagem], function(err) {
       if (err) {
         console.error('Erro ao adicionar produto:', err);
         return res.status(500).send('Erro no servidor');
@@ -48,6 +66,7 @@ router.post('/adicionar-produto', (req, res) => {
     });
   });
 });
+
 
 // Rota para verificar produtos duplicados
 router.get('/produtos-duplicados', (req, res) => {

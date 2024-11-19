@@ -28,7 +28,7 @@ db.serialize(() => {//Abaixo cria a tabela de produtos
         nome TEXT NOT NULL,
         preco REAL NOT NULL,
         imagem TEXT NOT NULL,
-        descricao TEXT
+        descricao TEXT NOT NULL
       )
     `, (err) => {
       if (err) {

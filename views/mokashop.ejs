@@ -16,11 +16,16 @@
         <a href="#" onclick="filtrarPorCategoria('Americano')">Americano</a>
         <a href="#" onclick="filtrarPorCategoria('Expresso')">Expresso</a>
         <a href="#" onclick="filtrarPorCategoria('Flat White')">Flat White</a>
-        <a href="#" onclick="filtrarPorCategoria('Café preto')">Café preto</a>
+        <a href="#" onclick="filtrarPorCategoria('Café Preto')">Café preto</a>
         <a href="#" onclick="filtrarPorCategoria('Macchiato')">Macchiato</a>
         <a href="#" onclick="filtrarPorCategoria('Mocha')">Mocha</a>
         <a href="#" onclick="filtrarPorCategoria('Café Gelado')">Café Gelado</a>
+        <a href="#" onclick="filtrarPorCategoria('Waffle')">Waffle</a>
         <a href="#" onclick="filtrarPorCategoria('Frapuccino')">Frapuccino</a>
+        <a href="#" onclick="filtrarPorCategoria('Misto Quente')">Misto Quente</a>
+        <a href="#" onclick="filtrarPorCategoria('Waffle com frutas')">Waffle com frutas</a>
+        <a href="#" onclick="filtrarPorCategoria('Crepe doce')">Crepe Doce</a>
+        <a href="#" onclick="filtrarPorCategoria('Shawarma')">Shawarma</a>
     </div>
 
     <div class="main-content">
@@ -52,7 +57,7 @@
             <% }); %>
         </div>
     <script>
-        function filtrarProdutos() {
+function filtrarProdutos() {
             const input = document.getElementById('search-input').value.toLowerCase();
             const cards = document.querySelectorAll('.card');
             
@@ -160,6 +165,8 @@
                 });
             }
         </script>
+
+    <script src="/routes/mokashop.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
