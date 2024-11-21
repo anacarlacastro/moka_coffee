@@ -13,11 +13,6 @@ function inserirProduto(nome, descricao, preco, imagem) {
   });
 }
 
-inserirProduto('Misto Quente', 'Pão na chapa com queijo e presunto', 7.00, 'images/mistoQuente.jpg');
-inserirProduto('Crepe doce', 'Crepe com frutas', 6.00 , 'images/pexels-eileenlamb-3225499.jpg');
-inserirProduto('Shawarma', 'Sanduíche Grego', 10.00, 'images/sanduicheGrego.jpg');
-inserirProduto('Waffle com frutas', 'Waffle', 8.00, 'images/Wafflecomfruta.jpeg');
-
 
 // Rota para listar os produtos
 router.get('/', (req, res) => {
