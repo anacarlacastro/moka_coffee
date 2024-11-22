@@ -100,33 +100,74 @@
 
 <!-- Principais Categorias -->
 <section class="top-cards" id="categorias">
-  <div class="heading2">Principais Categorias</div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 py-3 py-md-0">
-        <div class="card">
-          <img src="./images/c1.png" alt="">
-          
+  <div class="heading4">Principais Categorias</div>
+  <div class="divider"></div>
+  <div class="subheading" id="subtitulo">Bebidas</div>
+  
+  <div class="carousel-wrapper">
+    <button class="carousel-btn prev-btn hidden">&lt;</button>
+    <div class="carousel-container">
+      <!-- Slide 1: Bebidas -->
+      <div class="row">
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/m1.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/m2.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/m3.png" alt="">
+          </div>
         </div>
       </div>
-      <div class="col-md-4 py-3 py-md-0">
-        <div class="card">
-          <img src="./images/c2.png" alt="">
-          
+
+      <!-- Slide 2: Bebidas -->
+      <div class="row hidden">
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="images/sanduiche-com-legumes-e-queijo.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/sanduicheGrego.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/waffles.jpg" alt="">
+          </div>
         </div>
       </div>
-      <div class="col-md-4 py-3 py-md-0">
-        <div class="card">
-          <img src="./images/c3.png" alt="">
-          
-        </div>
+   <!-- Slide 3: Ingredientes -->
+   <div class="row hidden">
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/arabica coffee.png" alt="">
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="/images/Cappuccino coffee.png" alt="">
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="./images/Black Coffee.png" alt="">
       </div>
     </div>
   </div>
+</div>
+<button class="carousel-btn next-btn">&gt;</button>
+</div>
 </section>
-<!-- Principais Categorias -->
 
-<!-- product -->
+      <!-- product -->
 <section id="product" class="product">
   <div class="container">
   <div class="heading4">Produtos</div>
@@ -179,6 +220,7 @@
   </div>
 </section>
 <!-- product -->
+      
 
 <!-- our gallary -->
 <div class="container" id="gallary">
@@ -335,6 +377,49 @@
 
 
   </div>
+  <script>
+    const subtitulo = document.getElementById('subtitulo');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const carouselContainer = document.querySelector('.carousel-container');
+const rows = document.querySelectorAll('.row');
+
+// Categorias e subtítulos
+const categorias = ["Bebidas", "Lanches", "Produtos"];
+let slideAtual = 0;
+
+// Atualiza a visualização
+const atualizarCarousel = () => {
+  subtitulo.textContent = categorias[slideAtual];
+  
+  // Movimenta o container para mostrar o slide atual
+  const offset = -slideAtual * 100; // Cada slide ocupa 100% da largura
+  carouselContainer.style.transform = `translateX(${offset}%)`;
+
+  // Alterna visibilidade dos botões
+  prevBtn.classList.toggle('hidden', slideAtual === 0);
+  nextBtn.classList.toggle('hidden', slideAtual === categorias.length - 1);
+};
+
+// Botão próximo
+nextBtn.addEventListener('click', () => {
+  if (slideAtual < categorias.length - 1) {
+    slideAtual++;
+    atualizarCarousel();
+  }
+});
+
+// Botão anterior
+prevBtn.addEventListener('click', () => {
+  if (slideAtual > 0) {
+    slideAtual--;
+    atualizarCarousel();
+  }
+});
+
+// Inicializa com o primeiro slide
+atualizarCarousel();
+  </script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

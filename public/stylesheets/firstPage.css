@@ -197,58 +197,72 @@ color: white;
 /* about */
 
 /* top cards */
-.categorias{
-width: 100%;
-background: #f7f5f2;
-font-family: 'Roboto', sans-serif;
-}
-.top-cards{
-width: 100%;
-height: 60vh;
-background: #f7f5f2;
-font-family: 'Roboto', sans-serif;
-}
-.heading2{
+.heading4{
   text-align: center;
-  font-size: 30px;
   color: #b2744c;
+  font-size: 30px;
   font-weight: bold;
+  padding-top: 70px;
+  border-bottom: 2px solid #b2744c;
+  }
+#subtitulo{
+  text-align: center;
+  color: #63422c;
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 30px;
+  }
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden; /* Impede que itens fora da área visível sejam mostrados */
 }
 
-.top-cards .container{
-margin-top: 30px;
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Animação ao trocar slides */
 }
-.top-cards .card{
-border-radius: 10px;
-transition: 0.5s;
-cursor: pointer;
+
+.row {
+  min-width: 100%; /* Cada slide ocupa toda a largura disponível */
+  display: flex;
+  justify-content: space-between;
 }
-.top-cards .card img{
-border-radius: 10px;
+
+.hidden {
+  display: none;
 }
-.top-cards .card h3{
-text-align: center;
-padding-top: 78px;
-color: white;
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
-.top-cards .card:hover{
-transform: translateY(-10px);
+
+.carousel-btn:hover {
+  opacity: 1;
 }
-@media screen and (max-width:767px){
-.top-cards{
-height: 170vh;
-} 
+
+.prev-btn {
+  left: 10px;
 }
-@media screen and (max-width:500px){
-.top-cards{
-height: 150vh;
-} 
+
+.next-btn {
+  right: 10px;
 }
-@media screen and (max-width:370px){
-.top-cards{
-height: 120vh;
-} 
-}
+
 /* top cards */
 
 
@@ -263,13 +277,7 @@ width: 100%;
 background: #f7f5f2;
 font-family: 'Roboto', sans-serif;
 }
-.heading3{
-text-align: center;
-font-size: 30px;
-color: #b2744c;
-font-weight: bold;
-border-bottom: 2px solid #b2744c;
-}
+
 #container2{
 margin-top: 20px;
 }
@@ -309,14 +317,7 @@ width: 100%;
 background: #f7f5f2;
 font-family: 'Roboto', sans-serif;
 }
-.heading4{
-text-align: center;
-color: #b2744c;
-font-size: 30px;
-font-weight: bold;
-padding-top: 70px;
-border-bottom: 2px solid #b2744c;
-}
+
 #container3{
 margin-top: 30px;
 }
