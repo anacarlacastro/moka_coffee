@@ -7,39 +7,41 @@ const router = express.Router();
 const db = new sqlite3.Database('./database.db');
 
 // Rota para exibir a página de login
-router.get('/', function (req, res) {
-  res.render('login');
+router.get('/', (req, res) => {
+  res.render('login', { error: null }); // Renderiza a página de login sem mensagens de erro
 });
 
 // Rota para processar o login
-router.post('/', function (req, res) {
+router.post('/', (req, res) => {
   const { email, password } = req.body;
   console.log('Dados recebidos:', email, password);
 
   // Buscar usuário pelo email
-  db.get('SELECT * FROM users WHERE username = ?', [email], function (err, user) {
+  const query = 'SELECT * FROM users WHERE username = ?';
+  db.get(query, [email], (err, user) => {
     if (err) {
-      return res.status(500).send('Erro ao acessar o banco de dados');
+      console.error('Erro ao acessar o banco de dados:', err.message);
+      return res.render('login', { error: 'Erro interno no servidor' });
     }
 
     // Se o usuário não for encontrado
     if (!user) {
-      return res.status('login', { error: 'Usuário não encontrado' });
+      return res.render('login', { error: 'Usuário não encontrado' });
     }
-    
 
     // Comparar a senha
-    bcrypt.compare(password, user.password, function (err, isMatch) {
+    bcrypt.compare(password, user.password, (err, isMatch) => {
       if (err) {
-        return res.status(500).send('Erro ao verificar a senha');
+        console.error('Erro ao verificar a senha:', err.message);
+        return res.render('login', { error: 'Erro ao verificar a senha' });
       }
 
       if (!isMatch) {
-        return res.status(401).send('Senha incorreta');
+        return res.render('login', { error: 'Senha incorreta' });
       }
 
       // Se as credenciais estiverem corretas, redireciona para a página inicial
-      res.redirect('/');  
+      res.redirect('/');
     });
   });
 });
