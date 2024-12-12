@@ -11,6 +11,7 @@ const loginRouter = require('./routes/login');
 const mokashopRouter = require('./routes/mokashop');
 const cadastroRouter = require('./routes/cadastro');
 const sobreNosRouter = require('./routes/sobreNos');
+const perfilRouter = require('./routes/perfil');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use('/login', loginRouter);
 app.use('/mokashop', mokashopRouter);
 app.use('/cadastro', cadastroRouter);
 app.use('/sobreNos', sobreNosRouter);
+app.use('/perfil', perfilRouter);
 
 // Exemplo de pesquisa de produtos
 app.get('/search', (req, res) => {
