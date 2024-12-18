@@ -106,6 +106,15 @@ height: 45px;
 margin-top: 20px;
 margin-right: 40px;
 margin-bottom: 25px;
+cursor: pointer;
+}
+.dropdown:hover .dropdown-menu {
+  display: block; /* Exibe o menu ao passar o mouse */
+  margin-top: 0; /* Evita qualquer deslocamento estranho */
+}
+.dropdown-menu {
+  left: auto; /* Remove alinhamento padrão à esquerda */
+  transform: translateX(-50%); /* Centraliza o menu */
 }
 /* navbar */
 /* home content */

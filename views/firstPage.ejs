@@ -52,8 +52,17 @@
         <div class="d-flex">
           <a href="/login" class="btn" id="login-btn" style="color: inherit; text-decoration: none;">Login</a>
           <a href= "/cadastro" class="btn" id="register-btn" style="color: inherit; text-decoration: none;">Cadastro</a>
-          <a href="/perfil"> <img src="images/perfil.png"
-             class="iconperfil" alt="perfil"></a>
+
+          <div class="dropdown">
+          <a class="perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img src="images/perfil.png"
+           class="iconperfil" alt="perfil"></a>
+           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/suaconta">Sua conta</a></li>
+            <li><a class="dropdown-item" href="/suaconta">Seus pedidos</a></li>
+            <li><a class="dropdown-item" href="#">Recomendações pra você</a></li>
+            <li><a class="dropdown-item" href="#">Configurações</a></li>
+          </ul>
+          </div>
         </div>
       </div>
     </div>
