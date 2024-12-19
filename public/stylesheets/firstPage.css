@@ -230,21 +230,19 @@ color: white;
   padding-top: 70px;
   border-bottom: 2px solid #b2744c;
   }
-#subtitulo{
-  text-align: center;
-  color: #63422c;
-  font-size: 25px;
-  font-weight: bold;
-  padding-top: 30px;
-  }
+
 .carousel-wrapper {
   position: relative;
-  overflow: hidden; /* Impede que itens fora da área visível sejam mostrados */
+  overflow: hidden; /* Oculta itens fora do carrossel */
+  margin: 20px auto;
+  max-width: 90%; /* Ajusta a largura */
 }
 
 .carousel-container {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* Animação ao trocar slides */
+  gap: 20px; /* Espaço entre os itens */
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 
 .row {
@@ -255,6 +253,19 @@ color: white;
 
 .hidden {
   display: none;
+}
+.card {
+  flex: 0 0 calc(100% / 6); /* Ajusta para 6 itens em telas maiores */
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
 .carousel-btn {
@@ -287,14 +298,26 @@ color: white;
 .next-btn {
   right: 10px;
 }
+/* Responsividade */
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(100% / 2); /* 2 itens em telas menores */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(100% / 4); /* 4 itens em telas médias */
+  }
+}
+
+@media (min-width: 1025px) {
+  .card {
+    flex: 0 0 calc(100% / 6); /* 6 itens em telas grandes */
+  }
+}
 
 /* top cards */
-
-
-
-
-
-
 
 /* menu */
 .menu{

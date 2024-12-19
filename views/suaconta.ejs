@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <title>Sua Conta</title>
+<head>
+    <meta charset="UTF-8">
     <link rel="stylesheets" href="suaconta.css">
-    <meta charset="utf-8">
-  </head>
-  <body>
-Página de perfil do usuário
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de perfil do usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .info-boxes {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .info-box {
+            background-color: #fff;
+            width: 200px;
+            height: 150px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #333;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Informações</div>
+        <div class="info-boxes">
+            <div class="info-box">Conta</div>
+            <div class="info-box">Endereço</div>
+            <div class="info-box">Informações de pagamento</div>
+        </div>
+    </div>
+</body>
 </html>

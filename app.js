@@ -13,6 +13,7 @@ const cadastroRouter = require('./routes/cadastro');
 const sobreNosRouter = require('./routes/sobreNos');
 const perfilRouter = require('./routes/perfil');
 const suacontaRouter = require('./routes/suaconta');
+const pedidosRouter = require('./routes/pedidos');
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use('/cadastro', cadastroRouter);
 app.use('/sobreNos', sobreNosRouter);
 app.use('/perfil', perfilRouter);
 app.use('/suaconta', suacontaRouter);
+app.use('/pedidos', pedidosRouter);
 
 // Exemplo de pesquisa de produtos
 app.get('/search', (req, res) => {
