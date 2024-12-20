@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
   console.log('Dados recebidos:', email, password);
 
   // Buscar usuário pelo email
-  const query = 'SELECT * FROM users WHERE username = ?';
+  const query = 'SELECT * FROM users WHERE email = ?';
   db.get(query, [email], (err, user) => {
     if (err) {
       console.error('Erro ao acessar o banco de dados:', err.message);
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
 
     // Se o usuário não for encontrado
     if (!user) {
-      return res.render('login', { error: 'Usuário não encontrado' });
+      return res.render('login', { error: 'Usuário ou senha incorretos' });
     }
 
     // Comparar a senha
@@ -37,10 +37,11 @@ router.post('/', (req, res) => {
       }
 
       if (!isMatch) {
-        return res.render('login', { error: 'Senha incorreta' });
+        return res.render('login', { error: 'E-mail ou senha incorretos' });
       }
 
       // Se as credenciais estiverem corretas, redireciona para a página inicial
+      console.log(`Usuário ${user.username} logado com sucesso!`);
       res.redirect('/');
     });
   });

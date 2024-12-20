@@ -113,8 +113,12 @@ cursor: pointer;
   margin-top: 0; /* Evita qualquer deslocamento estranho */
 }
 .dropdown-menu {
-  left: auto; /* Remove alinhamento padrão à esquerda */
-  transform: translateX(-50%); /* Centraliza o menu */
+left: auto; /* Remove alinhamento padrão à esquerda */   transform: translateX(-50%); /* Centraliza o menu */
+}
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none !important; /* Remove o contorno padrão */
+    box-shadow: none !important; /* Remove qualquer sombra aplicada */
 }
 /* navbar */
 /* home content */
@@ -138,7 +142,7 @@ color: #883C06;
 }
 .content p{
 margin-top: 10px;
-color: black;
+color: rgb(255, 255, 255);
 font-family: Georgia;
 }
 #shop-btn{
