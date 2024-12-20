@@ -4,13 +4,54 @@
     <meta charset="UTF-8">
     <link rel="stylesheets" href="suaconta.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Página de perfil do usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000031;
+        }
+        .container {
+            text-align: center;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .info-boxes {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .info-box {
+            background-color: #fff;
+            width: 200px;
+            height: 150px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #333;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-  1- Nav com logo que volta pra home e o título "Seu perfil";
-  <br>
-  <br>
-  2- Os quadros de Conta, Endereço e Pagamento.
+    <div class="container">
+        <div class="title">Informações do usuário</div>
+        <div class="info-boxes">
+            <div class="info-box">Conta</div>
+            <div class="info-box">Endereço</div>
+            <div class="info-box">Informações de pagamento</div>
+        </div>
+    </div>
 </body>
 </html>
