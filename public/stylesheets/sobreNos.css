@@ -1,0 +1,103 @@
+/* navbar */
+#navbar{
+    position:sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 2px solid #b2744c;
+    box-shadow: 10px 0px 10px #251910;
+    }
+    #menu {
+      display: none;
+    }
+    #logo img{
+    border-radius: 10px;
+    width: 160px;
+    margin-left: 40px;
+    }
+    .navbar-nav{
+    margin-left: 50px;
+    justify-content: space-between;
+    
+    }
+    .nav-item .nav-link{
+    color: #b2744c;
+    margin-left: 10px;
+    font-weight: bold;
+    transition: 0.5s;
+    text-decoration: none;
+    }
+    .nav-item .nav-link:hover{
+    background: #b2744c;
+    border-radius: 5px;
+    color: white;
+    }
+    #navbar form button{
+    background: black;
+    color: white;
+    border: 1px solid white;
+    } 
+    
+    #login-btn{
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 25px;
+    color: #b2744c !important;
+    background: transparent !important;
+    border: 2px solid #b2744c !important;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.5s ease;
+    cursor: pointer;
+    text-decoration: none !important;
+    }
+    #login-btn:hover {
+    background: #b2744c !important;
+    color: white !important;
+    }
+    #register-btn{
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 25px;
+    color: #b2744c !important;;
+    background: transparent !important;
+    border: 2px solid #b2744c !important;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.5s ease;
+    cursor: pointer;
+    text-decoration: none !important;
+    }
+    #register-btn:hover {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 25px;
+    background: #b2744c !important;
+    color: white !important;
+    }
+    .iconperfil {
+    width: 45px;
+    height: 45px;
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block; /* Exibe o menu ao passar o mouse */
+      margin-top: 0; /* Evita qualquer deslocamento estranho */
+    }
+    .dropdown-menu {
+    left: auto; /* Remove alinhamento padrão à esquerda */   transform: translateX(-50%); /* Centraliza o menu */
+    }
+    .navbar-toggler:focus,
+    .navbar-toggler:active {
+        outline: none !important; /* Remove o contorno padrão */
+        box-shadow: none !important; /* Remove qualquer sombra aplicada */
+    }
+    /* navbar */
