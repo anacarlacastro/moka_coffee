@@ -121,11 +121,13 @@ left: auto; /* Remove alinhamento padrão à esquerda */   transform: translateX
     box-shadow: none !important; /* Remove qualquer sombra aplicada */
 }
 /* navbar */
+
+
 /* home content */
 #home{
   width: 100%;
   height: 90vh;
-  background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(../images/top-view-cup-coffee-with-copy-space.jpg);
+  background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(../images/cafe_topo_sobrenos.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 80%;
