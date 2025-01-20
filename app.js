@@ -17,6 +17,11 @@ const pedidosRouter = require('./routes/pedidos');
 
 const app = express();
 
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  next();
+});
+
 // Configuração do EJS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
