@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="sidebar">
-        
+        <!-- Menu de Categorias -->
         <h5>Cafés</h5>
         <a href="#" onclick="filtrarPorCategoria('Cappuccino')">Cappuccino</a>
         <a href="#" onclick="filtrarPorCategoria('Latte')">Latte</a>
@@ -28,19 +28,22 @@
         <a href="#" onclick="filtrarPorCategoria('Waffle com frutas')">Waffle com frutas</a>
         <a href="#" onclick="filtrarPorCategoria('Crepe doce')">Crepe Doce</a>
         <a href="#" onclick="filtrarPorCategoria('Shawarma')">Shawarma</a>
+        <!-- Outros links -->
     </div>
 
-
     <div class="main-content">
-        <div class="order-status">
-        </div>
+        <div class="order-status"></div>
         <div class="text-center">
-           <a href="/"> <img src="images/Mokas-logo-Shop.png" class="logo"> </a>
+            <a href="/"> <img src="images/Mokas-logo-Shop.png" class="logo"> </a>
         </div>
         <h2 class="text-center">Procure seu pedido favorito aqui..</h2>
         <div class="form-group">
-            <input type="text" class="form-control" id="search-input" placeholder="Pesquisar" onkeyup="filtrarProdutos()">
+            <input type="text" class="form-control" id="search-input" placeholder="Pesquisar" onkeyup="pesquisarSugestoes(event)">
+            <!-- Lista de sugestões -->
+            <ul id="sugestoes-list" class="list-group" style="display: none; position: absolute; background-color: white; z-index: 100;"></ul> 
         </div>
+
+        <!-- Cards de produtos -->
         <div class="row">
             <% produtos.forEach(produto => { %>
             <div class="col-md-4">
@@ -56,24 +59,24 @@
             </div>
             <% }); %>
         </div>
+    </div>
+<!-- Card Expansível -->
+<div class="expanded-card">
+    <div class="expanded-content">
+        <div class="image"></div>
+        <div class="details">
+            <h3 class="name"></h3>
+            <p class="price"></p>
+            <p class="full-description"></p>
+
+            <button class="btn">Voltar</button>
+        </div>
+    </div>
+</div>
     <script>
-function filtrarProdutos() {
-            const input = document.getElementById('search-input').value.toLowerCase();
-            const cards = document.querySelectorAll('.card');
-            
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                if (title.includes(input)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-        
+        // Função para filtrar por categoria
         function filtrarPorCategoria(categoria) {
             const cards = document.querySelectorAll('.card');
-            
             cards.forEach(card => {
                 const title = card.querySelector('.card-title').textContent;
                 if (title === categoria) {
@@ -83,89 +86,148 @@ function filtrarProdutos() {
                 }
             });
         }
-        </script>
-        <script>
-            // Função para filtrar produtos localmente
-            function filtrarProdutos() {
-                const input = document.getElementById('search-input').value.toLowerCase();
-                const cards = document.querySelectorAll('.card');
-                
-                cards.forEach(card => {
-                    const title = card.querySelector('.card-title').textContent.toLowerCase();
-                    if (title.includes(input)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-        
-            // Função para filtrar por categoria (menu lateral)
-            function filtrarPorCategoria(categoria) {
-                const cards = document.querySelectorAll('.card');
-                
-                cards.forEach(card => {
-                    const title = card.querySelector('.card-title').textContent;
-                    if (title === categoria) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-        
-            // Adicionar evento de escuta para a barra de pesquisa
-            const searchInput = document.getElementById('search-input');
+
+        // Função para buscar sugestões de produtos enquanto o usuário digita
+        async function pesquisarSugestoes(event) {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const sugestoesList = document.getElementById('sugestoes-list');
             
-            searchInput.addEventListener('input', filtrarProdutos);
-        
-            // Função para buscar no servidor ao pressionar Enter
-            searchInput.addEventListener('keypress', async function (event) {
-                if (event.key === 'Enter') {
-                    const query = searchInput.value;
-                    
-                    // Fazer a busca no back-end se o campo não estiver vazio
-                    if (query.trim() !== '') {
-                        try {
-                            const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
-                            const results = await response.json();
-        
-                            updateResults(results);
-                        } catch (error) {
-                            console.error("Erro ao buscar no servidor:", error);
-                        }
-                    }
+            // Limpa as sugestões anteriores
+            sugestoesList.innerHTML = '';
+
+            if (input.trim() === '') {
+                sugestoesList.style.display = 'none';
+                return;
+            }
+
+            // Filtra as sugestões (baseado nos produtos disponíveis)
+            const produtos = document.querySelectorAll('.card-title');
+            let sugestoes = [];
+            
+            produtos.forEach((produto, index) => {
+                if (produto.textContent.toLowerCase().includes(input)) {
+                    sugestoes.push(produto.textContent);
+                    const li = document.createElement('li');
+                    li.textContent = produto.textContent;  // Usando o nome do produto
+                    li.classList.add('list-group-item');
+                    li.dataset.index = index;  // Armazena o índice da sugestão
+                    li.addEventListener('click', () => selecionarProduto(li));  // Adiciona evento de clique
+                    sugestoesList.appendChild(li);
                 }
             });
-        
-            // Função para atualizar os resultados exibidos na página
-            function updateResults(products) {
-                const productsContainer = document.querySelector('.row');
-                productsContainer.innerHTML = '';
-        
-                if (products.length === 0) {
-                    productsContainer.innerHTML = '<p>Nenhum produto encontrado.</p>';
-                    return;
+
+            // Exibe as sugestões
+            if (sugestoes.length > 0) {
+                sugestoesList.style.display = 'block';
+            } else {
+                sugestoesList.style.display = 'none';
+            }
+
+            // Verifica se o Enter foi pressionado
+            if (event && event.key === 'Enter') {
+                const query = input.trim();
+
+                // Se a pesquisa não estiver vazia
+                if (query !== '') {
+                    try {
+                        // Realiza a busca no servidor diretamente com o valor digitado
+                        const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+                        const results = await response.json();
+                        updateResults(results);  // Atualiza os resultados com os dados do servidor
+                    } catch (error) {
+                        console.error("Erro ao buscar no servidor:", error);
+                    }
                 }
-        
-                products.forEach(product => {
-                    const card = `
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="${product.imagem}" class="card-img-top" alt="${product.nome}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${product.nome}</h5>
-                                    <p class="card-text">R$ ${product.preco}</p>
-                                    <button class="btn">Add ao carrinho</button>
-                                </div>
+
+                // Esconde as sugestões após pressionar Enter
+                sugestoesList.style.display = 'none';
+            }
+        }
+
+        // Função para selecionar um produto da sugestão
+        function selecionarProduto(sugestao) {
+            const query = sugestao.textContent;
+
+            // Fazer a busca no servidor com a sugestão escolhida
+            if (query.trim() !== '') {
+                fetch(`/search?q=${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(results => {
+                        updateResults(results);  // Atualiza os resultados com os dados do servidor
+                    })
+                    .catch(error => console.error("Erro ao buscar no servidor:", error));
+            }
+
+            // Esconde as sugestões após a seleção
+            document.getElementById('sugestoes-list').style.display = 'none';
+            document.getElementById('search-input').value = query;  // Preenche a barra de pesquisa com a sugestão
+        }
+
+        // Função para atualizar os resultados exibidos na página
+        function updateResults(products) {
+            const productsContainer = document.querySelector('.row');
+            productsContainer.innerHTML = '';
+
+            if (products.length === 0) {
+                productsContainer.innerHTML = '<p>Nenhum produto encontrado.</p>';
+                return;
+            }
+
+            products.forEach(product => {
+                const card = `
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="${product.imagem}" class="card-img-top" alt="${product.nome}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.nome}</h5>
+                                <p class="card-text">R$ ${product.preco}</p>
+                                <button class="btn">Ver descrição</button>
                             </div>
                         </div>
-                    `;
-                    productsContainer.innerHTML += card;
-                });
-            }
-        </script>
+                    </div>
+                `;
+                productsContainer.innerHTML += card;
+            });
+        }
+    </script>
 
+    <script>
+// Função para expandir o card ao clicar no botão "Ver descrição"
+function expandirCard(card) {
+    const expandedCard = document.getElementById('expanded-card');
+    const imagem = card.querySelector('img').src;
+    const nome = card.querySelector('.card-title').innerText;
+    const preco = card.querySelector('.card-text').innerText;
+    const descricao = card.querySelector('.card-text').innerText;
+
+    // Preencher as informações no card expandido
+    expandedCard.querySelector('.image').style.backgroundImage = `url(${imagem})`;
+    expandedCard.querySelector('.name').innerText = nome;
+    expandedCard.querySelector('.price').innerText = preco;
+    expandedCard.querySelector('.full-description').innerText = descricao;
+
+    // Exibir o card expandido
+    expandedCard.classList.add('show');
+}
+
+// Adicionando o evento ao botão "Ver descrição"
+document.querySelectorAll('.card .btn').forEach((button) => {
+    button.addEventListener('click', (event) => {
+        const card = event.target.closest('.card');
+        expandirCard(card);
+        event.stopPropagation();  // Impede que o clique feche o card imediatamente
+    });
+});
+
+// Função para fechar o card expandido
+function fecharCard() {
+    const expandedCard = document.getElementById('expanded-card');
+    expandedCard.classList.remove('show');
+}
+
+
+    </script>
+    
     <script src="/routes/mokashop.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

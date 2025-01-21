@@ -23,27 +23,6 @@ router.post('/register', async (req, res) => {
     });
 });
 
-
-// Conexão com o banco de dados SQLite
-const db = new sqlite3.Database("./database/cafeteria.db", err => {
-    if (err) {
-        console.error("Erro ao conectar ao banco SQLite3:", err.message);
-    } else {
-        console.log("Conectado ao banco SQLite3.");
-    }
-});
-
-// Criar a tabela se não existir
-db.run(`
-    CREATE TABLE IF NOT EXISTS mensagens (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        email TEXT NOT NULL,
-        mensagem TEXT NOT NULL,
-        data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-`);
-
 // Rota para processar os dados do formulário
 router.post("/contato", (req, res) => {
     console.log("Formulário enviado:", req.body);  // Verificar se os dados estão sendo recebidos
@@ -59,7 +38,8 @@ router.post("/contato", (req, res) => {
             console.error("Erro ao salvar mensagem no banco de dados:", err.message);
             return res.status(500).send("Erro ao processar sua solicitação.");
         }
-        res.redirect("/?success=true");
+        console.log(`Mensagem salva com ID: ${this.lastID}`);
+        res.json({ sucesso: true, mensagem: "Recebemos sua mensagem. Obrigada por falar conosco!" });
     });
 });
 

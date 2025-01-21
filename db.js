@@ -42,6 +42,17 @@ const db = new sqlite3.Database('./database.db', (err) => {
     }
 });
 
+// Criar a tabela se não existir
+db.run(`
+    CREATE TABLE IF NOT EXISTS mensagens (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        email TEXT NOT NULL,
+        mensagem TEXT NOT NULL,
+        data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+`);
+
 // Fechar o banco de dados corretamente ao encerrar o processo
 process.on('SIGINT', () => {
     db.close((err) => {

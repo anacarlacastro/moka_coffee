@@ -2,6 +2,20 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
+router.get('/search', (req, res) => {
+  const searchQuery = req.query.q.toLowerCase();  // Obtém a string de busca da URL
+
+  // A consulta SQL busca produtos que contenham o termo de pesquisa no nome
+  const query = 'SELECT * FROM produtos WHERE LOWER(nome) LIKE ?';
+  
+  db.all(query, [`%${searchQuery}%`], (err, rows) => {
+      if (err) {
+          console.error('Erro ao buscar produtos:', err);
+          return res.status(500).send('Erro no servidor');
+      }
+      res.json(rows);  // Retorna os produtos encontrados em formato JSON
+  });
+});
 function inserirProduto(nome, descricao, preco, imagem) {
   const insertQuery = 'INSERT INTO produtos (nome, descricao, preco, imagem) VALUES (?, ?, ?, ?)';
   db.run(insertQuery, [nome, descricao, preco, imagem], function (err) {
