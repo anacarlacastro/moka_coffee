@@ -49,9 +49,37 @@
             <a class="nav-link" href="#blogs">Blog</a>
           </li>
         </ul>
-        <div class="d-flex">
+
+        <div class="d-flex align-items-center">
+          <!-- Ícone de localização e horários -->
+          <div class="dropdown me-2">
+            <a class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-map-marker-alt" style="font-size: 20px; color: #5c3a24;"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#horariosModal">Horários</a></li>
+              <li><a class="dropdown-item" href="https://www.google.com/maps?q=Cafeteria+Mokas" target="_blank">Localização</a></li>
+            </ul>
+          </div>
+
+      
           <a href="/login" class="btn" id="login-btn" style="color: inherit; text-decoration: none;">Login</a>
-          <a href= "/cadastro" class="btn" id="register-btn" style="color: inherit; text-decoration: none;">Cadastro</a>
+
+          <!-- Modal para os horários -->
+<div class="modal fade" id="horariosModal" tabindex="-1" aria-labelledby="horariosModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="horariosModalLabel">Horários de Funcionamento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Segunda a Sexta: 8h às 20h</p>
+        <p>Sábado e Domingo: 9h às 18h</p>
+      </div>
+    </div>
+  </div>
+</div>
 
           <div class="dropdown">
           <a class="perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false"> <img src="images/perfil.png"

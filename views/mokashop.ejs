@@ -52,7 +52,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><%= produto.nome %></h5>
                             <p class="card-price">R$ <%= produto.preco.toFixed(2) %></p>
-                            <p class="card-description"><%= produto.descricao.slice(0, 25) %>...</p>
+                            <p class="card-description"><%= produto.descricao.slice(0, 30) %>...</p>
                             <!-- Botão para abrir a modal -->
                             <button class="btn" data-toggle="modal" data-target="#produtoModal<%= produto.id %>">Ver descrição</button>
                         </div>
