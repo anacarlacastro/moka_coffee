@@ -46,36 +46,48 @@
         <!-- Cards de produtos -->
         <div class="row">
             <% produtos.forEach(produto => { %>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="<%= produto.imagem %>" class="card-img-top" alt="<%= produto.nome %>">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= produto.nome %></h5>
-                        <p class="card-text">R$ <%= produto.preco.toFixed(2) %></p>
-                        <p class="card-text"><%= produto.descricao %></p>
-                        <a href=""><button class="btn">Ver descrição</button></a>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="<%= produto.imagem %>" class="card-img-top" alt="<%= produto.nome %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= produto.nome %></h5>
+                            <p class="card-price">R$ <%= produto.preco.toFixed(2) %></p>
+                            <p class="card-description"><%= produto.descricao.slice(0, 25) %>...</p>
+                            <!-- Botão para abrir a modal -->
+                            <button class="btn" data-toggle="modal" data-target="#produtoModal<%= produto.id %>">Ver descrição</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            
+                <!-- Modal -->
+                <div class="modal fade" id="produtoModal<%= produto.id %>" tabindex="-1" role="dialog" aria-labelledby="produtoModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="produtoModalLabel"><%= produto.nome %></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Imagem do produto -->
+                                <img src="<%= produto.imagem %>" class="img-fluid" alt="<%= produto.nome %>">
+                                <p><strong>Preço:</strong> R$ <%= produto.preco.toFixed(2) %></p>
+                                <!-- Descrição completa do produto -->
+                                <p><strong>Descrição:</strong> <%= produto.descricao %></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <% }); %>
-        </div>
-    </div>
-<!-- Card Expansível -->
-<div class="expanded-card">
-    <div class="expanded-content">
-        <div class="image"></div>
-        <div class="details">
-            <h3 class="name"></h3>
-            <p class="price"></p>
-            <p class="full-description"></p>
+                
 
-            <button class="btn">Voltar</button>
-        </div>
-    </div>
-</div>
     <script>
-        // Função para filtrar por categoria
-        function filtrarPorCategoria(categoria) {
+       // Função para filtrar por categoria
+       function filtrarPorCategoria(categoria) {
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
                 const title = card.querySelector('.card-title').textContent;
@@ -180,7 +192,8 @@
                             <img src="${product.imagem}" class="card-img-top" alt="${product.nome}">
                             <div class="card-body">
                                 <h5 class="card-title">${product.nome}</h5>
-                                <p class="card-text">R$ ${product.preco}</p>
+                                <p class="card-price">R$ ${product.preco}</p>
+                                <p class="card-description">R$ ${product.descricao}</p>
                                 <button class="btn">Ver descrição</button>
                             </div>
                         </div>
@@ -188,49 +201,35 @@
                 `;
                 productsContainer.innerHTML += card;
             });
-        }
+        } 
+
     </script>
-
-    <script>
-// Função para expandir o card ao clicar no botão "Ver descrição"
-function expandirCard(card) {
-    const expandedCard = document.getElementById('expanded-card');
-    const imagem = card.querySelector('img').src;
-    const nome = card.querySelector('.card-title').innerText;
-    const preco = card.querySelector('.card-text').innerText;
-    const descricao = card.querySelector('.card-text').innerText;
-
-    // Preencher as informações no card expandido
-    expandedCard.querySelector('.image').style.backgroundImage = `url(${imagem})`;
-    expandedCard.querySelector('.name').innerText = nome;
-    expandedCard.querySelector('.price').innerText = preco;
-    expandedCard.querySelector('.full-description').innerText = descricao;
-
-    // Exibir o card expandido
-    expandedCard.classList.add('show');
-}
-
-// Adicionando o evento ao botão "Ver descrição"
-document.querySelectorAll('.card .btn').forEach((button) => {
+<script>
+    // Função para preencher a Modal com os detalhes do produto
+document.querySelectorAll('.card button').forEach(button => {
     button.addEventListener('click', (event) => {
         const card = event.target.closest('.card');
-        expandirCard(card);
-        event.stopPropagation();  // Impede que o clique feche o card imediatamente
+        
+        const imagem = card.querySelector('img').src;
+        const nome = card.querySelector('.card-title').innerText;
+        const preco = card.querySelector('.card-price').innerText;
+        const descricao = card.querySelector('.card-description').innerText;
+        
+        // Preencher os dados na Modal
+        document.getElementById('modalImage').src = imagem;
+        document.getElementById('modalTitle').innerText = nome;
+        document.getElementById('modalPrice').innerText = preco;
+        document.getElementById('modalDescription').innerText = descricao;
     });
 });
 
-// Função para fechar o card expandido
-function fecharCard() {
-    const expandedCard = document.getElementById('expanded-card');
-    expandedCard.classList.remove('show');
-}
+</script>
 
 
-    </script>
-    
-    <script src="/routes/mokashop.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="/routes/mokashop.js"></script>
 </body>
 </html>
